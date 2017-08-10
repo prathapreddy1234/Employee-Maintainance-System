@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relieving_jasper_3" pageWidth="600" pageHeight="900" whenNoDataType="AllSectionsNoDetail" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="250" y="37" width="150" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Relieving Letter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="35" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="435" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="80" width="30" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dear]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name                 :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Emp Id               :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Designation       :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="80" width="150" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M. Vinay  Sri Ram]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[M. Vinay  Sri Ram]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="20" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Network Administrator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="40" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TFSSC044]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="200" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="260" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[This has reference to your letter of resignation dated ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="90" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[30th Sep, 2015]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="550" height="57"/>
+				<textElement markup="none">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[wherein you have requested to be relieved from the services of the company at the earliest.
+
+We wish to inform you that your resignation is hereby accepted and you are being relieved from the services of the company with effect from close of office hours on
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="72" width="100" height="15"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[30th Sep, 2015.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="87" width="550" height="55"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[We also certify that your full and final settlement of account has been cleared with the organization.
+
+Your contributions to the organization and its success will always be appreciated.
+
+We at Techfort Software Services Pvt. Ltd wish you all the best in your future endeavors.
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="100">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Yours truly,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="250" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[For, Techfort Software Services Pvt Ltd.,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="100" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HR-Manager.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<summary>
+		<band height="50" splitType="Stretch"/>
+	</summary>
+</jasperReport>

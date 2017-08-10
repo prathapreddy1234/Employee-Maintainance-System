@@ -1,0 +1,22 @@
+.active {
+	background-color: #0080c0;
+	border-color: #0080c0;
+	border-radius: 15px;
+}
+#relieve{
+	top: 110px;
+	width: 500px;
+	position: absolute;
+	left: 500px;
+	top: 200px;
+	color: white;
+	border-color: #400000;
+	/* background-color: #e8fed8; */
+	background-image: url('../images/wood-451248_960_720.jpg');
+}
+#reasontxt{
+	border-radius: 15px;
+}
+#reasonbtn{
+	float: right;
+}
