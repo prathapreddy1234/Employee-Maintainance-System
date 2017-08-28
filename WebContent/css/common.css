@@ -2,6 +2,7 @@
 @media(min-width:768px) {
     body {
         margin-top: 50px;
+        background-image: url("./images/head");
     }
     /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
 }
@@ -74,7 +75,7 @@
 @media(min-width:768px) {
     .side-nav {
         position: fixed;
-        top: 60px;
+        top:50px;
         left: 225px;
         width: 225px;
         margin-left: -225px;

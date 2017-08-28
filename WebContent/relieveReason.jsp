@@ -15,7 +15,7 @@
 <body>
 <%
 try{
-	out.print("coming.....");
+	System.out.println("coming....");
 	Connection con = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -28,7 +28,7 @@ try{
 	Class.forName(driver);
 	con=DriverManager.getConnection(url,dbusername,dbpassword);
 	String reason=request.getParameter("reason");
-	String query="UPDATE employees SET reason='"+reason+"' WHERE sno='"+session.getAttribute("ID")+"'";
+	String query="UPDATE employees SET reason='"+reason+"' WHERE employeeid='"+session.getAttribute("ID")+"'";
 	out.print(reason);
 	System.out.print(reason);
 	ps=con.prepareStatement(query);

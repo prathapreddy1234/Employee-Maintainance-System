@@ -38,6 +38,8 @@ function validateOld() {
 	xmlhttp.send();
 }
 
+
+
 $(document).ready(function() {
     $('#asignprojbtn').click(function ()
     {
@@ -48,7 +50,7 @@ $(document).ready(function() {
             type: "post",
             url: "AssignProject", //this is my servlet
             data: {proj,emp,manager},
-            success: function(msg){      
+            success: function(){      
             	 $("#panelassign").slideDown(1000).delay(2000).slideUp(500);	 
                     
             }
@@ -56,25 +58,26 @@ $(document).ready(function() {
     });
 
 });
- 
 
 $(document).ready(function() {
-    $('#changebtn').click(function ()
+    $('#addprojbtn').click(function ()
     {
-    var oldpass=$('#oldpass').val();
-    var cnfnewpass=$('#cnfpass').val();
+    var projectname=$('#projectname').val();
+    var clientname=$('#clientname').val();
+    var duration=$('#duration').val();
         $.ajax({
             type: "post",
-            url: "ChangePassword", //this is my servlet
-            data: {oldpass,cnfnewpass},
-            success: function(msg){      
-            	 $("#panelchangepass").slideDown(1000).delay(2000).slideUp(500);	 
-                    
+            url: "AddProject", //this is my servlet
+            data: {projectname,clientname,duration},
+            success: function(){      
+            	 $("#paneladdproj").slideDown(1000).delay(2000).slideUp(500);
+            	 $('#addprojbtn').attr("disabled", true);
             }
         });
     });
 
 });
+
 
 var np;
 var cnp;
@@ -97,6 +100,14 @@ $(document).ready(function() {
 		$('#content4').hide();
 		$('#content5').hide();
 		$('#content6').hide();
+		$('#regname').val('');
+    	$('#password').val('');
+    	$('#email').val('');
+    	$('#eid').val('');
+    	$('#username').val('');
+    	$('#phone').val('');
+    	$('#dt').val('');
+    	
 	});
 	$("#viewemp").click(function() {
 		$("#content2").show();
@@ -121,6 +132,9 @@ $(document).ready(function() {
 		$('#content3').hide();
 		$('#content5').hide();
 		$('#content6').hide();
+		$('#projectname').val('');
+    	$('#clientname').val('');
+    	$('#duration').val('');
 	});
 	$("#assignProj").click(function() {
 		$("#content5").show();
@@ -137,22 +151,21 @@ $(document).ready(function() {
 		$('#content3').hide();
 		$("#content4").hide();
 		$('#content5').hide();
+		$('#oldpass').val('');
+    	$('#newpass').val('');
+    	$('#cnfpass').val('');
 	});
 });	 
 
-$(document).ready(function() {
+ $(document).ready(function() {
     $('#addemployeebtn').attr("disabled", true);
 });
-
+ 
 $(document).ready(function() {
     $('#spinner').hide();
 });
 
-$(document).ready(function() {
-    $('#addemployeebtn').click(function() {
-    	$('#spinner').show();
-	});
-});
+
 
 $(document).ready(function() {
     $('#addprojbtn').attr("disabled", true);
@@ -243,7 +256,7 @@ function ValidatePhone() {
 
 
 function ValidateDate() {
-	var date=document.getElementById("dt").value;
+	var date=document.getElementById("date").value;
 	if(date==""){
 		f=false;
 	}
@@ -473,28 +486,39 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$('#chpswd_info').hide();
-
+	$('#admin_oldcheck_info').hide();
+	$('#admin_newcheck_info').hide();
 });
 
 
 /*Enables validators*/
 
 /*for name*/
+var pername=false;
+var perpass=false;
+var peremail=false;
+var perphone=false;
 $(document).ready(function(){
 	
+ 
 	$('#regname').keyup(function() {
 		var name = $(this).val();
 		if ( name.match( "[a-z]|[A-Z].*") ) {
 			$('#namevalids').removeClass('invalid').addClass('valid');
+			pername=true;
 		} else {
 			$('#namevalids').removeClass('valid').addClass('invalid');
+			pername=false;
 		}
 		if(name.match("[0-9]")){
 			$('#namevalids').removeClass('valid').addClass('invalid');
+			pername=false;
 		}
 		if(name.match("[^a-zA-Z0-9\-\/]")){
 			$('#namevalids').removeClass('valid').addClass('invalid');
+			pername=false;
 		}
+		
 	}).focus(function() {
 		$('#user_info').show();
 	}).blur(function() {
@@ -502,6 +526,7 @@ $(document).ready(function(){
 	});
 	
 });
+
 
 /*for password*/
 $(document).ready(function(){
@@ -512,36 +537,46 @@ $(document).ready(function(){
 		//validate the length
 		if ( pswd.length < 8 ) {
 			$('#length').removeClass('valid').addClass('invalid');
+			perpass=false;
 		} else {
 			$('#length').removeClass('invalid').addClass('valid');
+			perpass=true;
 		}
 		
 		//validate letter
 		if ( pswd.match(/[A-z]/) ) {
 			$('#letter').removeClass('invalid').addClass('valid');
+			perpass=true;
 		} else {
 			$('#letter').removeClass('valid').addClass('invalid');
+			perpass=false;
 		}
 
 		//validate capital letter
 		if ( pswd.match(/[A-Z]/) ) {
 			$('#capital').removeClass('invalid').addClass('valid');
+			perpass=true;
 		} else {
 			$('#capital').removeClass('valid').addClass('invalid');
+			perpass=false;
 		}
 
 		//validate number
 		if ( pswd.match(/\d/) ) {
 			$('#number').removeClass('invalid').addClass('valid');
+			perpass=true;
 		} else {
 			$('#number').removeClass('valid').addClass('invalid');
+			perpass=false;
 		}
 		
 		//validate space
 		if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
 			$('#space').removeClass('invalid').addClass('valid');
+			perpass=true;
 		} else {
 			$('#space').removeClass('valid').addClass('invalid');
+			perpass=false;
 		}
 		
 	}).focus(function() {
@@ -558,8 +593,10 @@ $(document).ready(function(){
 		var email = $(this).val();
 		if (email.match( "^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$") ) {
 			$('#emailvalids').removeClass('invalid').addClass('valid');
+			peremail=true;
 		} else {
 			$('#emailvalids').removeClass('valid').addClass('invalid');
+			peremail=false;
 		}
 				
 	}).focus(function() {
@@ -577,16 +614,21 @@ $(document).ready(function(){
 		var phone = $(this).val();
 		if ( phone.match("[0-9]{10,}") ) {
 			$('#tenvalids').removeClass('invalid').addClass('valid');
+			perphone=true;
 		} else {
 			$('#tenvalids').removeClass('valid').addClass('invalid');
+			perphone=false;
 		}
 		if(phone.length>10){
 			$('#tenvalids').removeClass('valid').addClass('invalid');
+			perphone=false;
 		}
 		if ( phone.match(/[9|8|7]/) ) {
 			$('#startvalids').removeClass('invalid').addClass('valid');
+			perphone=true;
 		} else {
 			$('#startvalids').removeClass('valid').addClass('invalid');
+			perphone=false;
 		}
 				
 	}).focus(function() {
@@ -608,6 +650,28 @@ $(document).ready(function(){
 	
 });
 
+$(document).ready(function(){
+	
+	$('#oldpass').keyup(function() {
+	}).focus(function() {
+		$('#admin_oldcheck_info').show();
+	}).blur(function() {
+		$('#admin_oldcheck_info').hide();
+	});
+	
+});
+
+$(document).ready(function(){
+	
+	$('#cnfpass').keyup(function() {
+	}).focus(function() {
+		$('#admin_newcheck_info').show();
+	}).blur(function() {
+		$('#admin_newcheck_info').hide();
+	});
+	
+});
+var perchpass=false;
 /*for change password*/
 $(document).ready(function(){
 	
@@ -616,46 +680,46 @@ $(document).ready(function(){
 		//validate the length
 		if ( pswd.length < 8 ) {
 			$('#chlength').removeClass('valid').addClass('invalid');
-			a=false;
+			perchpass=false;
 		} else {
 			$('#chlength').removeClass('invalid').addClass('valid');
-			a=true;
+			perchpass=true;
 		}
 		
 		//validate letter
 		if ( pswd.match(/[a-z]/) ) {
 			$('#chletter').removeClass('invalid').addClass('valid');
-			a=true;
+			perchpass=true;
 		} else {
 			$('#chletter').removeClass('valid').addClass('invalid');
-			a=false;
+			perchpass=false;
 		}
 
 		//validate capital letter
 		if ( pswd.match(/[A-Z]/) ) {
 			$('#chcapital').removeClass('invalid').addClass('valid');
-			a=true;
+			perchpass=true;
 		} else {
 			$('#chcapital').removeClass('valid').addClass('invalid');
-			a=false;
+			perchpass=false;
 		}
 
 		//validate number
 		if ( pswd.match(/\d/) ) {
 			$('#chnumber').removeClass('invalid').addClass('valid');
-			a=true;
+			perchpass=true;
 		} else {
 			$('#chnumber').removeClass('valid').addClass('invalid');
-			a=false;
+			perchpass=false;
 		}
 		
 		//validate space
 		if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
 			$('#chspace').removeClass('invalid').addClass('valid');
-			a=true;
+			perchpass=true;
 		} else {
 			$('#chspace').removeClass('valid').addClass('invalid');
-			a=false;
+			perchpass=false;
 		}
 		
 	}).focus(function() {
@@ -680,15 +744,77 @@ function validateNew(){
 	}
 }
 
-//perfect validations
-$(document).ready(function(){
-	$('changebtn').click(function(){
-		alert("i am coming");
-		if(a==true){
-			return true;
-		}
-		else{
-			return false;
-		}
-	});
+//perfect changePassword
+$(document).ready(function() {
+    $('#changebtn').click(function ()
+    {
+    var oldpass=$('#oldpass').val();
+    var cnfnewpass=$('#cnfpass').val();
+    alert("i am coming");
+	if(perchpass==false){
+		$('#newpass').focus();
+		return false;
+	}
+	if(f==false){
+		$('#cnfpass').focus();
+		return false;
+	}
+        $.ajax({
+            type: "post",
+            url: "ChangePassword", //this is my servlet
+            data: {oldpass,cnfnewpass},
+            success: function(){      
+            	 $("#panelchangepass").slideDown(1000).delay(2000).slideUp(500);
+            	 $('#changebtn').attr("disabled", true);
+            }
+        });
+    });
+
 });
+
+//perfect registration
+$(document).ready(function() {
+    $('#addemployeebtn').click(function ()
+    {
+    	if(pername==false){
+    		$('#regname').focus();
+    		return false;
+    	}
+    	if(perpass==false){
+    		$('#password').focus();
+    		return false;
+    	}
+    	if(peremail==false){
+    		$('#email').focus();
+    		return false;
+    	}
+    	if(perphone==false){
+    		$('#phone').focus();
+    		return false;
+    	}
+
+    	/*$('#spinner').show();*/
+    	
+    var eid=$('#eid').val();
+    var name=$('#regname').val();
+    var username=$('#username').val();
+    var password=$('#password').val();
+    var email=$('#email').val();
+    var phone=$('#phone').val();
+    var date=$('#dt').val();
+    var Role=$('#role').val();
+        $.ajax({
+            type: "Post",
+            url: "AddEmployees", //this is my servlet
+            data: {eid,name,username,password,email,phone,date,Role},
+            success: function(msg){ 
+            	 $("#panelregemp").slideDown(1000).delay(2000).slideUp(500);
+            	 $('#addemployeebtn').attr("disabled", true);
+            }
+        });
+    });
+
+});
+
+ 
+ 

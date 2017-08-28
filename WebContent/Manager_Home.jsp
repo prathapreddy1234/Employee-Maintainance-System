@@ -21,7 +21,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="./js/validations.js"></script>
-<script src="./js/manager.js"></script>
+<script src="./js/manager_script.js"></script>
 <script type="text/javascript"></script>
 <link rel="stylesheet" href="css/manager.css">
 <title>MANAGER_HOME</title>
@@ -97,7 +97,7 @@ padding: 10px;
 					PreparedStatement pstmt = con
 							.prepareStatement("select * from employees WHERE reason IS NOT NULL AND NOT role='Manager' AND NOT role='Admin'");
 					PreparedStatement ps = con
-							.prepareStatement("select * from employees where sno='" + session.getAttribute("ID") + "'");
+							.prepareStatement("select * from employees where employeeid='" + session.getAttribute("ID") + "'");
 					ResultSet rest = pstmt.executeQuery();
 					ResultSet res = ps.executeQuery();
 					 

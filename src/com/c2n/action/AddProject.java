@@ -37,14 +37,10 @@ public class AddProject extends HttpServlet{
 			ps.setString(1, projname);
 			ps.setString(2, cusername);
 			ps.setString(3, duration);
-			int res = ps.executeUpdate();
-			if (res > 0)
-				response.sendRedirect("AdminHome.jsp?registration Success");
-			else
-				response.sendRedirect("AdminHome.jsp?registration Fail");
-
+			ps.execute();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 

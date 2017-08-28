@@ -31,12 +31,13 @@ Statement st=con.createStatement();
                     rs = st.executeQuery("select * from employees where username='"+uname+"'");   
                     if(rs.next())
                     {    
+                    	out.print("<img src='https://s19.postimg.org/olmaj1p8z/invalid.png' alt='available' style='background-color:ffeeff'/>");
                         out.println("<font color=red>");
                         out.println("Name already taken");
                         out.println("</font>");
  
                     }else {
- 
+                    	out.print("<img src='https://s19.postimg.org/vq43s2wib/valid.png' alt='available' />");
                         out.println("<font color=green>");
                         out.println("Available");
                         out.println("</font>");

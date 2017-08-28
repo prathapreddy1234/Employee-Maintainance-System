@@ -56,6 +56,11 @@ else{
 	   });
 }
 }
+
+
+ 
+ 
+
 </script>
 <title>EMPLOYEE MAINTENANCE SYSTEM</title>
 <style>
@@ -124,7 +129,7 @@ span {
 									</select>
 								</div>
 								<div class="checkbox">
-									<label> <input type="checkbox" name="remember"
+									<label> <input type="checkbox" name="remember"  
 										id="remember"> Remember login
 									</label>
 									<!--   <p class="help-block">(if this is a private computer)</p> -->

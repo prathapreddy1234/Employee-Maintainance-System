@@ -45,31 +45,29 @@
     list-style: outside none none;
 }
 
+#admin_oldcheck_info ul {
+    list-style: outside none none;
+}
+
+#admin_newcheck_info ul {
+    list-style: outside none none;
+}
+
 #username_info ul li {
    padding: 10px 45px;
 }
 
-
+ 
 
 #phone_info {
 	background: #dfdfdf;
-	left: 930px;
+	left: 790px;
 	position: absolute;
-	top: 340px;
+	top: 400px;
 	width: 325px;
+	border-radius:25px;
 }
 
-#phone_info::before {
-    background: #dfdfdf none repeat scroll 0 0;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
-}
 
 .navbar-inverse {
     background-color: none;
@@ -79,108 +77,64 @@
 #user_info {
 	 
 	background:#dfdfdf;
-	left: 930px;
+	left: 790px;
 	position: absolute;
-	top: 45px;
+	top: 100px;
 	width: 325px;
+	border-radius: 25px;
 }
 
 
-#user_info::before {
-    background: #dfdfdf;
-    border-color:navy;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
-}
-
+ 
 #username_info {
-	 
+	 border-radius: 25px;
 	background:#dfdfdf;
-	left: 520px;
+	left: 430px;
 	position: absolute;
-	top: 120px;
+	top: 190px;
 	width: 325px;
 }
 
 
-#username_info::before {
-    background: #dfdfdf;
-    border-color:navy;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
-}
-
+ 
 #pswd_info {
 	background: #dfdfdf;
-	left: 520px;
+	left: 430px;
 	position: absolute;
-	top: 135px;
+	top: 200px;
 	width: 325px;
+	border-radius: 25px;
 }
 
-#pswd_info::before {
-    background: #dfdfdf none repeat scroll 0 0;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 30%;
-    transform: rotate(45deg);
-    width: 25px;
-}
+ 
 
 #email_info {
 	background: #dfdfdf;
-	left: 105px;
+	left: 70px;
 	position: absolute;
-	top: 260px;
+	top: 330px;
 	width: 325px;
+	border-radius: 25px;
 }
 
-#email_info::before {
-    background: #dfdfdf none repeat scroll 0 0;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
-}
-
-#role_info {
+ #admin_oldcheck_info {
 	background: #dfdfdf;
-	left: 105px;
-	position: absolute;
-	top: 260px;
+	left: 825px;
+	position: fixed;
+	top: 200px;
 	width: 325px;
+	border-radius: 25px;
 }
 
-#role_info::before {
-    background: #dfdfdf none repeat scroll 0 0;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
+ #admin_newcheck_info {
+	background: #dfdfdf;
+	left: 825px;
+	position: fixed;
+	top: 350px;
+	width: 325px;
+	border-radius: 25px;
 }
+ 
 
 #pswd_info ul li {
    padding: 10px 45px;
@@ -228,6 +182,9 @@ border:   solid;
 .table-bordered > tbody  tr td{
 border: solid;
 }
+.table-bordered > tbody>tr>th{
+border: solid;
+}
 
 #content1 {
     position: absolute;
@@ -236,7 +193,7 @@ border: solid;
     
 }
 #content2{
-     width: 120%;
+     width: 150%;
 }
 
 #content3 {
@@ -293,3 +250,32 @@ color: blue;
 	color: #008040;
 	display: none; 
 }
+
+#paneladdproj {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
+	background-color: white;
+	border: solid 5px #c3c3c3;
+	width: 800px;
+	margin: 0 auto;
+	border: solid 1px #00ff00;
+	color: #008040;
+	display: none; 
+}
+
+#panelregemp {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+	text-align: center;
+	background-color: white;
+	border: solid 5px #c3c3c3;
+	width: 800px;
+	margin: 0 auto;
+	border: solid 1px #00ff00;
+	color: #008040;
+	display: none; 
+}
+ 

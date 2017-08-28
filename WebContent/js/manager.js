@@ -47,10 +47,10 @@ $(document).ready(function() {
             type: "post",
             url: "EditManager", //this is my servlet
             data: {name,email,phone},
-            success: function(msg){      
+            success: function(msg){ 
             	 $("#panel").slideDown(1000).delay(2000).slideUp(500);	 
-                    
             }
+            $('this').hide();
         });
     });
 
@@ -61,10 +61,7 @@ b=false;
 c=false;
 d=false;
 e=false;
-$(document).ready(function(){
-	$(a).on('click', function(){$(this).css("background-color:yellow	");});	
-});
-
+ 
 $(document).ready(function() {
 	$('#home').hide();
 	$('#requests').hide();

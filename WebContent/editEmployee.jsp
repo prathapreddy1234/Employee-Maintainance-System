@@ -15,6 +15,7 @@
 <%
  
 try {
+	System.out.println("coming.....");
 	String id=request.getParameter("sno");
 	
 	Connection con=null;
@@ -23,7 +24,7 @@ try {
 	Class.forName("com.mysql.jdbc.Driver");	
 	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/emsdb","root","");
 	
-	String sql = "select *from employees where sno='"+id+"'";
+	String sql = "select *from where sno='"+id+"'";
 	
 	ResultSet rs = pst.executeQuery(sql);
 	out.println(id);

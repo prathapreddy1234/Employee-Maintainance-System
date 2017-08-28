@@ -12,7 +12,7 @@ $(document).ready(function(){
 		$('#editprofile').hide();
 		$('#changeMPass').hide();
 	});
-	$('#editbtn').click(function() {
+	$('#empeditbtn').click(function() {
 		$('#home').hide();
 		$('#relieve').hide();
 		$('#editprofile').show();
@@ -26,14 +26,14 @@ $(document).ready(function(){
 	});
 	/* Stores Reason */
 	 $('#reasonbtn').click(function () {
-			    var reason=$('#reasontxt').val();
+		
+			    var reason=$('#reasontxt').val();			    
 			        $.ajax({
 			            type: "post",
 			            url: "relieveReason.jsp", // this is my servlet
 			            data: {reason},
 			            success: function(msg){      
 			            	 $("#panel").slideDown(1000).delay(2000).slideUp(500);	 
-			                    
 			            }
 			        });
 			    });
@@ -43,7 +43,7 @@ $(document).ready(function(){
 			    var old=$('#oldpass').val();
 			    var newp=$('#cnfpass').val();
 			        $.ajax({
-			            type: "post",
+			            type: "",
 			            url: "EmpChangePassword", //this is my servlet
 			            data: {old,newp},
 			            success: function(msg){      
