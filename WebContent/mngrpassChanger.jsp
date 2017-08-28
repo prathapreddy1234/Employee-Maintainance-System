@@ -27,7 +27,7 @@ Class.forName(driver);
 con = DriverManager.getConnection(url, dbusername, dbpassword);
 Statement st=con.createStatement();
                     //ResultSet rs = st.executeQuery("select * from emp where empno="+sn);
-                    rs = st.executeQuery("select * from employees where password='"+opass+"' and sno='"+session.getAttribute("ID")+"'");   
+                    rs = st.executeQuery("select * from employees where password='"+opass+"' and employeeid='"+session.getAttribute("ID")+"'");   
                     if(rs.next())
                     {    
                         out.println("<font color=green>");

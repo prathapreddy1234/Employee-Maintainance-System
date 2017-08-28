@@ -45,7 +45,7 @@ public class LoginValidate extends HttpServlet
 			String id=null;
 			while (rs.next()) {
 				 rol=rs.getString(9);
-				 id=rs.getString(1);
+				 id=rs.getString(2);
 			}
 			System.out.println(id);
 			System.out.println(rol);

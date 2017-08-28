@@ -45,13 +45,9 @@ public class AssignProject extends HttpServlet {
 			String manager=request.getParameter("manager");
 			Class.forName(driver);
 			con=DriverManager.getConnection(url,dbusername,dbpassword);
-			ps=con.prepareStatement("update employees set project='"+projectname+"' where name='"+employee+"'");
+			ps=con.prepareStatement("UPDATE employees SET project='"+projectname+"' where employeeid='"+employee+"'");
 			int j=ps.executeUpdate();
-			if (j>0) {
-				response.sendRedirect("AdminHome.jsp?Projectassigned Successfully");
-			} else {
-				response.sendRedirect("AdminHome.jsp?Projectassigned  fail");
-			}
+			 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

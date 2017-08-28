@@ -39,7 +39,7 @@ public class EditManager extends HttpServlet
 			String name=request.getParameter("name");
 			String email=request.getParameter("email");
 			String phone=request.getParameter("phone");
-			Object id=session.getAttribute("ID");
+			
 			
 			System.out.println(name);
 			System.out.println(email);
@@ -47,7 +47,7 @@ public class EditManager extends HttpServlet
 			Class.forName(driver);
 			con=DriverManager.getConnection(url,dbusername,dbpassword);
 			
-			ps=con.prepareStatement("update employees set name='"+name+"' , email='"+email+"' , phonenumber='"+phone+"' where sno='"+id+"'");
+			ps=con.prepareStatement("update employees set name='"+name+"' , email='"+email+"' , phonenumber='"+phone+"' where employeeid='"+session.getAttribute("ID")+"'");
 			int j=ps.executeUpdate();
 			System.out.println("i am working.......");
 			

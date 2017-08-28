@@ -38,6 +38,44 @@ function validateOld() {
 	xmlhttp.send();
 }
 
+$(document).ready(function() {
+    $('#asignprojbtn').click(function ()
+    {
+    var proj=$('#proj').val();
+    var emp=$('#emp').val();
+    var manager=$('#manager').val();
+        $.ajax({
+            type: "post",
+            url: "AssignProject", //this is my servlet
+            data: {proj,emp,manager},
+            success: function(msg){      
+            	 $("#panelassign").slideDown(1000).delay(2000).slideUp(500);	 
+                    
+            }
+        });
+    });
+
+});
+ 
+
+$(document).ready(function() {
+    $('#changebtn').click(function ()
+    {
+    var oldpass=$('#oldpass').val();
+    var cnfnewpass=$('#cnfpass').val();
+        $.ajax({
+            type: "post",
+            url: "ChangePassword", //this is my servlet
+            data: {oldpass,cnfnewpass},
+            success: function(msg){      
+            	 $("#panelchangepass").slideDown(1000).delay(2000).slideUp(500);	 
+                    
+            }
+        });
+    });
+
+});
+
 var np;
 var cnp;
 

@@ -75,18 +75,21 @@ span {
 					<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 				</button>
 				<h4 class="modal-title" id="myModalLabel">Login to Oursite</h4>
-				<%
+				 <%
 				try{
 					if(request.getParameter("nouser").equals("no"))
 					{%>
 					<span>No Such user Try again</span>
 					<% 
 					}
+					else{
+						System.out.print("Logged In");
+					}
 				}catch(Exception e){
-					e.printStackTrace();
+					 
 				}
 					
-				%>
+				%>  
 				
 			</div>
 			<div class="modal-body">
@@ -127,9 +130,6 @@ span {
 									<!--   <p class="help-block">(if this is a private computer)</p> -->
 								</div>
 								<button type="submit" class="btn btn-success btn-block" id="loginbtn">Login</button>
-								<%session.setAttribute("User", "balaji5");
-									
-											%>
 							</form>
 						</div>
 					</div>

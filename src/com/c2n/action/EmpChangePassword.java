@@ -35,7 +35,7 @@ public class EmpChangePassword extends HttpServlet{
 			con=DriverManager.getConnection(url,dbusername,dbpassword);
 			String op=request.getParameter("old");
 			String np=request.getParameter("newp");
-			ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE sno='"+session.getAttribute("ID")+"'");
+			ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE employeeid='"+session.getAttribute("ID")+"'");
 			ps.executeUpdate();
 			System.out.println(np);
 			System.out.println(op);

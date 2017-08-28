@@ -95,11 +95,12 @@ padding: 10px;
 					Class.forName(driver);
 					con = DriverManager.getConnection(url, dbusername, dbpassword);
 					PreparedStatement pstmt = con
-							.prepareStatement("select * from employees WHERE NOT role='Manager' AND NOT role='Admin'");
+							.prepareStatement("select * from employees WHERE reason IS NOT NULL AND NOT role='Manager' AND NOT role='Admin'");
 					PreparedStatement ps = con
 							.prepareStatement("select * from employees where sno='" + session.getAttribute("ID") + "'");
 					ResultSet rest = pstmt.executeQuery();
 					ResultSet res = ps.executeQuery();
+					 
 					
 			%>
 		
@@ -108,7 +109,6 @@ padding: 10px;
 					<table class="table">
 						<thead>
 							<tr>
-
 								<th>EmployeeID</th>
 								<th>Employee Name</th>
 								<th>Phone</th>
@@ -118,11 +118,10 @@ padding: 10px;
 						</thead>
 						<tbody>
 							<%
+								
 								while (rest.next()) {
 							%>
 							<tr>
-
-
 								<td><%=rest.getString(2)%></td>
 								<td><%=rest.getString(3)%></td>
 								<td><%=rest.getString(7)%></td>
@@ -133,7 +132,7 @@ padding: 10px;
 											<b>Accept</b>
 										</button></a></td>
 								<td><a
-									href="DeleteProcess?projectid=<%=rest.getInt(1)%>"><button
+									href=""><button
 											class="btn btn-danger btn-block">
 											<b>Decline</b>
 										</button></a></td>
@@ -141,6 +140,7 @@ padding: 10px;
 							</tr>
 							<%
 								} /* Close the While loop ----- ViewProjects  */
+								
 							%>
 						</tbody>
 					</table>

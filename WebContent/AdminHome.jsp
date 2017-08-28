@@ -30,7 +30,35 @@
 <title>ADMIN_HOME</title>
 </head>
 <body>
+	<div id="panelchangepass">
+		<img alt="correct" src="./images/valid.jpg"><b>password changed successfully!</b>
+	</div>
+	<div id="panelassign">
+		<img alt="correct" src="./images/valid.jpg"><b>Your Details
+			Updated Successfully!</b>
+	</div>
 	
+	 <%
+				try{
+					if(request.getParameter("deleteflag").equals("Y"))
+					{%>
+					<script>
+					$("#panel").slideDown(1000).delay(2000).slideUp(500);
+					</script>
+					<% 
+					}
+					else{
+						%>
+						<script>
+						$("#panelErr").slideDown(1000).delay(2000).slideUp(500);
+						</script>
+						<% 
+					}
+				}catch(Exception e){
+					 
+				}
+					
+				%>  
 	<div id="throbber" style="display: none; min-height: 220px;"></div>
 	<div id="noty-holder"></div>
 	<div id="wrapper">
@@ -48,8 +76,7 @@
 				<li><a href="#content2" id="viewemp" data-toggle="collapse"
 					data-target="d0"><i class="fa fa-fw fa-star"></i>&nbsp&nbspView Employees</a>
 					 </li>
-				<li><a href="#content3" id="offerltr"><i
-						class="fa fa-fw fa-user-plus"></i>&nbsp&nbspOffer Letter</a></li>
+				
 				<li><a href="#content4" id="addproj"><i
 						class="fa fa-fw fa-paper-plane-o"></i>&nbsp&nbspAdd Project</a></li>
 				<li><a href="#content5" id="assignProj"><i
@@ -58,7 +85,7 @@
 					<li><a href="#content6" id="changepass"><i class="fa fa-fw fa-cog"></i> Change
 							Password</a></li>
 					
-					<li><a href="login.jsp"><i class="fa fa-fw fa-power-off"></i>
+					<li><a href="login.jsp" id="adminlogout"><i class="fa fa-fw fa-power-off"></i>
 							Logout</a></li>
 				</ul>				
 		</div>
@@ -339,9 +366,7 @@
 </div></div>
 					</div>
 					<!-- Model Here -->
-					<div class="col-sm-12 col-md-12 well" id="content3">
-						<h1>Offer Letter</h1>
-					</div>
+					
 					<div class="col-sm-3 col-md-3 well" id="content4">															<!-- Add Project -->
 			<div class="row main">
 				<div class="main-login main-center">
@@ -393,7 +418,7 @@
 			<div class="col-sm-3 col-md-3 well" id="content5">															<!-- Assign Project -->
 				<div class="row main">
 				<div class="main-login main-center">
-					<form action="./AssignProject" method="post">
+					<form>
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Project</label>
 							
@@ -448,7 +473,7 @@
 								</div>
 						</div>
 						<div class="form-group ">
-							<input type="submit" id="asignprojbtn"
+							<input type="button" id="asignprojbtn"
 								class="btn btn-primary"
 								value="Asign">
 						</div>
@@ -461,7 +486,7 @@
 					<div class="col-sm-3 col-md-3 well" id="content6">															<!-- Change password -->
 						<div class="row main">
 				<div class="main-login main-center">
-					<form action="./ChangePassword" method="post">
+					<form>
 						<div class="form-group">
 							<label for="name" class="cols-sm-10 control-label">Old Password</label><span id="olderr"></span>
 							<div class="cols-sm-10">
@@ -498,7 +523,7 @@
 
 						
 						<div class="form-group">
-							<input type="submit" id="changebtn"
+							<input type="button" id="changebtn"
 								class="btn btn-primary"
 								value="CHANGE">
 						</div>

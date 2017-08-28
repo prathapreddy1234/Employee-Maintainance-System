@@ -36,7 +36,7 @@ public class ChangeMPassword extends HttpServlet{
 			String op=request.getParameter("old");
 			String np=request.getParameter("newp");
 			System.out.println("values.....");
-				ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE sno='"+session.getAttribute("ID")+"'");
+				ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE employeeid='"+session.getAttribute("ID")+"'");
 				ps.executeUpdate();
 				System.out.println(np);
 				System.out.println(op);

@@ -21,6 +21,7 @@ public class ChangePassword extends HttpServlet{
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			System.out.println("coming...");
 			HttpSession session=request.getSession();
 			DBConnection obj=new DBConnection();
 			Properties prop=obj.loadproperties();
@@ -32,12 +33,11 @@ public class ChangePassword extends HttpServlet{
 			con=DriverManager.getConnection(url,dbusername,dbpassword);
 			String op=request.getParameter("oldpass");
 			String np=request.getParameter("cnfnewpass");
-				ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE sno='"+session.getAttribute("ID")+"'");
+				ps=con.prepareStatement("UPDATE employees SET password='"+np+"' WHERE employeeid='"+session.getAttribute("ID")+"'");
 				ps.executeUpdate();
 				System.out.println(np);
 				System.out.println(op);
 				System.out.println("pass changed......");
-				response.sendRedirect("AdminHome.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 }

@@ -33,7 +33,7 @@ public class UpdateEmployee extends HttpServlet{
 			String name=request.getParameter("name");
 			String email=request.getParameter("email");
 			String phone=request.getParameter("phone");
-			Object id=session.getAttribute("ID");
+			
 			
 			System.out.println(name);
 			System.out.println(email);
@@ -41,7 +41,7 @@ public class UpdateEmployee extends HttpServlet{
 			Class.forName(driver);
 			con=DriverManager.getConnection(url,dbusername,dbpassword);
 			
-			ps=con.prepareStatement("UPDATE employees SET name='"+name+"' , email='"+email+"' , phonenumber='"+phone+"' WHERE sno='"+id+"'");
+			ps=con.prepareStatement("UPDATE employees SET name='"+name+"' , email='"+email+"' , phonenumber='"+phone+"' WHERE employeeid='"+session.getAttribute("ID")+"'");
 			int j=ps.executeUpdate();
 			PrintWriter pw=response.getWriter();
 			pw.println("<h1>password successfully updated...</h1>");
