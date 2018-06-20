@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +37,7 @@ public class EditEmployee extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			System.out.println("coming....");
+			System.out.println("code done");
 			HttpSession session=request.getSession();
 			DBConnection obj=new DBConnection();
 			Properties prop=obj.loadproperties();
